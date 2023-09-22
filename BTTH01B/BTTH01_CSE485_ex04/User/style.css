@@ -1,0 +1,185 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    overflow: hidden;
+}
+
+.container-fluid {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    height: 10vh;
+    box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.2); 
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.content-new {
+    height: 75vh;
+    position: relative;
+}
+
+.footer {
+    height: 5vh;
+}
+
+.content {
+    height: 80vh;
+    position: relative;
+}
+
+.boc_slide {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 700px;
+    height: 500px;
+    background-color: white;
+}
+
+.list_card {
+    position: absolute;
+    bottom: 0px;
+}
+
+#slide {
+    width: max-content;
+}
+
+.item {
+    width: 150px;
+    height: 200px;
+    background-position: 50% 50%;
+    display: inline-block;
+    transition: 0.5s;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.item:nth-child(1),
+.item:nth-child(2) {
+    left: 0;
+    top: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+}
+
+.item:nth-child(3) {
+    left: 50%;
+}
+
+.item:nth-child(4) {
+    left: calc(50% + 170px);
+}
+
+.item:nth-child(5) {
+    left: calc(50% + 340px);
+}
+
+.item:nth-child(n + 6) {
+    left: calc(50% + 510px);
+    opacity: 0;
+}
+
+.item .content_item {
+    position: absolute;
+    top: 100%;
+    left: 30px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -120%);
+    display: none;
+}
+
+.item:nth-child(2) .content_item{
+    display: block;
+}
+
+.item .name {
+    opacity: 0;
+    animation: animationcontent 0.3s ease-in-out 1 forwards;
+}
+
+.item .des {
+    opacity: 0;
+    animation: animationcontent 0.6s ease-in-out 1 forwards;
+
+}
+
+.item button {
+    opacity: 0;
+    animation: animationcontent 0.9s ease-in-out 1 forwards;
+
+}
+
+@keyframes animationcontent {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    } 
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+        filter: blur(0);
+    }
+}
+
+.buttons {
+    position: absolute;
+    bottom: 5px;
+    z-index: 33333;
+    text-align: center;
+    width: 100%;
+}
+
+.content-left {
+    overflow: hidden; 
+}
+
+.content-left img {
+    max-width: 100%;
+}
+
+#namebaihat {
+    color: blue;
+    font-size: 20px;
+}
+
+.content-right span {
+    font-weight: 500;
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.card {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.card.slide-left {
+    animation: slide-left 1s ease-in-out;
+}
