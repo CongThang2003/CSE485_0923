@@ -9,12 +9,11 @@
         $noidung = $_POST['noidung'];
         $matacgia = $_POST['matacgia'];
         $hinhanh = $_POST['hinhanh'];
-        $check_tontai = "SELECT COUNT(*) as SoLuong FROM baiviet WHERE tieude = '$tieude'";
+        $check_tontai = "SELECT * FROM baiviet WHERE ma_bviet != $mabaiviet AND (tieude = '$tieude' or hinhanh = '$hinhanh'";
         $stmt = $conn -> prepare($check_tontai);
         $stmt -> execute();
         $result = $stmt -> get_result();
-        $row = $result -> fetch_assoc();
-        if($row['SoLuong'] > 0) {
+        if($result->num_rows > 0) {
             header("Location: ../Admin/edit_posts.php?error=$mabaiviet");
         } else {
             if(empty($mabaiviet) || empty($tieude) || empty($tenbaihat) || empty($matheloai) || empty($tomtat) || empty($noidung) || empty($matacgia) || empty($hinhanh)) {
