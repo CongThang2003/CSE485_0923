@@ -4,7 +4,7 @@
         $matacgia = $_POST['matacgia'];
         $tentacgia = $_POST['tentacgia'];
         $hinhtacgia = $_POST['hinhtacgia'];
-        $check_tontai = "SELECT COUNT(*) as SoLuong FROM tacgia WHERE ten_tgia = '$tentacgia'";
+        $check_tontai = "SELECT * FROM tacgia WHERE ma_tgia != $matacgia AND (ten_tgia = '$tengiacgia' or hinh_tgia = '$hinhtacgia')";
         $stmt = $conn -> prepare($check_tontai);
         $stmt -> execute();
         $result = $stmt -> get_result();
