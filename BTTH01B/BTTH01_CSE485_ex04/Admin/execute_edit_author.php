@@ -8,8 +8,7 @@
         $stmt = $conn -> prepare($check_tontai);
         $stmt -> execute();
         $result = $stmt -> get_result();
-        $row = $result -> fetch_assoc();
-        if($row['SoLuong'] > 0) {
+        if($result->num_rows > 0) {
             header("Location: ../Admin/edit_author.php?error=$matacgia");
         } else {
             if(empty($matacgia) || empty($tentacgia)) {
