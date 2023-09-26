@@ -3,12 +3,11 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $matheloai = $_POST['matheloai'];
         $tentheloai = $_POST['tentheloai'];
-        $check_tontai = "SELECT COUNT(*) as SoLuong FROM theloai WHERE ten_tloai = '$tentheloai'";
+        $check_tontai = "SELECT * FROM theloai WHERE ma_tloai != $matheloai AND ten_loai = '$tentheloai'";
         $stmt = $conn -> prepare($check_tontai);
         $stmt -> execute();
         $result = $stmt -> get_result();
-        $row = $result -> fetch_assoc();
-        if($row['SoLuong'] > 0) {
+        if($result->num_rows > 0) {
             header("Location: ../Admin/edit_category.php?error=$matheloai");
         } else {
             if(empty($matheloai) || empty($tentheloai)) {
