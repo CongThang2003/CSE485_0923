@@ -56,7 +56,7 @@
                     </form>
                 </div>
                 <div class="footer_content">
-                    <div>Don't have an account?<a href="">Sign Up</a></div>
+                    <div>Don't have an account?<a href="../Admin/register.php">Sign Up</a></div>
                     <div><a href="">Forgot your password?</a></div>
                 </div>
             </div>
