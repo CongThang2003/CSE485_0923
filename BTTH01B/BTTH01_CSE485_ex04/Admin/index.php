@@ -1,5 +1,6 @@
 <?php
     include("connect.php");
+    include("check_login.php");
     $nguoidung = "SELECT * FROM users";
     $theloai = "SELECT * FROM theloai";
     $tacgia = "SELECT * FROM tacgia";
