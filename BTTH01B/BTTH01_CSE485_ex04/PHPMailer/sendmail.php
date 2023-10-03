@@ -32,7 +32,7 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Test mail';
-    $mail->Body    = 'Link đây <a href="localhost/BTTH01B/BTTH01_CSE485_ex04/Admin/verifyEmail.php?&user_id='.$result['user_id'].'">Truy cập trang web</a>';
+    $mail->Body    = 'Link đây <a href="localhost/BTTH01_CSE485_ex04/Admin/verifyEmail.php?&user_id='.$result['user_id'].'">Truy cập trang web</a>';
 
     $mail->send();
     echo 'Message has been sent';
